@@ -19,7 +19,32 @@ thereby get rid of the OpenSSL dependency).
     $ git submodule update
 ```
 
-## Build
+---
+## Build / Clean
+### Using plain GNU Make
 ```bash
     $ make
 ```
+```bash
+    $ make clean
+```
+
+#### Output files
+- optee_client: `optee_client/out/{export,libteec,tee-supplicant}`
+- optee_os: `optee_os/out`
+- optee_test: `optee_test/out{xtest,ta}`
+
+---
+### Using CMake (not fully CMake)
+
+```bash
+    $ make -f Makefile.cmake
+```
+```bash
+    $ make -f Makefile.cmake clean
+```
+
+#### Output files
+- optee_client: `out/optee_client/{libteec,tee-supplicant}`
+- optee_os: `optee_os/out`
+- optee_test: `out/optee_test/host/xtest/` and `out/ta/*/*.{ta/elf}`
